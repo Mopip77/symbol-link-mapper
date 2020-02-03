@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>软链接文件映射器</title>
+
+    <link rel="stylesheet" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" th:hidden="false">
+    <div class="toast-header">
+        <img src="..." class="rounded mr-2" alt="...">
+        <strong class="mr-auto">Bootstrap</strong>
+        <small class="text-muted">11 mins ago</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        {{ msg }}
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">新建一个文件夹映射</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="source-folder-label">原文件夹</span>
+                    </div>
+                    <input type="text" id="source-folder" class="form-control" aria-describedby="source-folder-label">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="dest-folder-label">目标文件夹</span>
+                    </div>
+                    <input type="text" id="dest-folder" class="form-control" aria-describedby="dest-folder-label">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="exclusive-regx-label">排除正则表达式</span>
+                    </div>
+                    <input type="text" id="exclusive-regx" class="form-control" aria-describedby="exclusive-regx-label">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            定时刷新该映射<input type="checkbox" id="auto-re-mapping" aria-label="Checkbox for following text input">
+                        </div>
+                    </div>
+                    <input type="text" id="auto-re-mapping-period" class="form-control" placeholder="定时间隔,单位小时(默认3小时)" aria-label="Text input with checkbox">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="test-regx">测试正则</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="folder-mapping-submit">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <div class="file-tree-box left-file-tree-box">
+                <ul class="list-group file-tree">
+                    <li class="list-group-item file-item active"><a>Cras justo odio</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="convert-btn-box">
+                <button type="button" class="btn btn-success convert-btn">
+                    <img src="/static/image/chevron-right.svg" alt="" title="Bootstrap">
+                </button>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="file-tree-box right-file-tree-box">
+                <ul class="list-group file-tree">
+                    <li class="list-group-item file-item active"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                    <li class="list-group-item file-item"><a>lao tie</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<style>
+    body {
+        background: #7a7374;
+        overflow: hidden;
+    }
+
+    .file-item {
+        cursor: pointer;
+    }
+
+    .file-tree-box {
+        position: relative;
+        width: 100%;
+        height: 40rem;
+        top: 15%;
+        overflow-y: scroll;
+        background: white;
+        border-radius: 6px;
+    }
+
+    .file-tree-box::-webkit-scrollbar {
+        display: none;
+    }
+
+    .left-file-tree-box {
+        left: 8%;
+    }
+
+    .right-file-tree-box {
+        right: 8%;
+    }
+
+    .convert-btn-box {
+        position: fixed;
+        width: 20%;
+        height: 5%;
+        top: 50%;
+        margin-left: 3.5%;
+    }
+
+    .convert-btn {
+        width: 20%;
+    }
+
+    .input-group {
+        margin-bottom: 10px;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        if ($().attr("msg") !== undefined) {
+            $.toast();
+        }
+        console.log($.attr("msg"));
+
+        $.ajax({
+            type: "GET",
+            url: "/folder_mapping",
+            success: function (resp) {
+                if (resp.code === 200) {
+                    if (resp.data.length === 0) {
+                        $('#exampleModalCenter').modal();
+                    } else {
+                        console.log(resp.data);
+                    }
+                }
+            }
+        });
+    });
+
+    $('.file-item').click(function (e) {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass("active");
+        } else $(this).addClass("active");
+    });
+
+    $('#folder-mapping-submit').click(function () {
+        var source_path = $('#source-folder').val();
+        var dest_path = $('#dest-path').val();
+        var exclusive_regx = $('#exclusive-regx').val();
+    });
+</script>
+</html>

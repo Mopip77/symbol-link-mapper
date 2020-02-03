@@ -1,0 +1,43 @@
+2020-02-03 16:26:11.881  INFO 88040 --- [restartedMain] t.m.s.SymbolLinkMapperApplication        : Starting SymbolLinkMapperApplication on MOPIP-MBP.local with PID 88040 (/Users/mopip77/project/java/symbol-link-mapper/target/classes started by liwenxuan in /Users/mopip77/project/java/symbol-link-mapper)
+2020-02-03 16:26:11.886  INFO 88040 --- [restartedMain] t.m.s.SymbolLinkMapperApplication        : No active profile set, falling back to default profiles: default
+2020-02-03 16:26:11.978  INFO 88040 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-03 16:26:11.979  INFO 88040 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-03 16:26:13.033  INFO 88040 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9000 (http)
+2020-02-03 16:26:13.043  INFO 88040 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-03 16:26:13.044  INFO 88040 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-03 16:26:13.101  INFO 88040 --- [restartedMain] o.a.c.c.C.[.[localhost].[/api/v1]        : Initializing Spring embedded WebApplicationContext
+2020-02-03 16:26:13.102  INFO 88040 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1123 ms
+2020-02-03 16:26:13.581  INFO 88040 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 16:26:13.630  INFO 88040 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-02-03 16:26:13.717  INFO 88040 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-02-03 16:26:13.743  INFO 88040 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-03 16:26:13.793  INFO 88040 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9000 (http) with context path '/api/v1'
+2020-02-03 16:26:13.796  INFO 88040 --- [restartedMain] t.m.s.SymbolLinkMapperApplication        : Started SymbolLinkMapperApplication in 2.377 seconds (JVM running for 3.041)
+2020-02-03 16:26:15.443  INFO 88040 --- [http-nio-9000-exec-1] o.a.c.c.C.[.[localhost].[/api/v1]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 16:26:15.443  INFO 88040 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-03 16:26:15.449  INFO 88040 --- [http-nio-9000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-02-03 16:26:15.515  INFO 88040 --- [http-nio-9000-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-03 16:26:15.868  INFO 88040 --- [http-nio-9000-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-03 16:26:22.328  INFO 88040 --- [http-nio-9000-exec-6] t.m.s.SymbolLinkMapperApplication        : [重命名] 原路径: /Users/mopip77/bb/cc 新名称: /Users/mopip77/bb/gg
+2020-02-03 16:26:30.515  INFO 88040 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-02-03 16:26:30.516  INFO 88040 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 16:26:30.517  INFO 88040 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-03 16:26:30.524  INFO 88040 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-02-03 16:28:54.637  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplicationTests   : Starting SymbolLinkMapperApplicationTests on MOPIP-MBP.local with PID 88673 (started by liwenxuan in /Users/mopip77/project/java/symbol-link-mapper)
+2020-02-03 16:28:54.639  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplicationTests   : No active profile set, falling back to default profiles: default
+2020-02-03 16:28:56.624  INFO 88673 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-03 16:28:56.731  INFO 88673 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-02-03 16:28:56.957  INFO 88673 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2020-02-03 16:28:57.032  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplicationTests   : Started SymbolLinkMapperApplicationTests in 2.641 seconds (JVM running for 3.56)
+2020-02-03 16:28:57.317  INFO 88673 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-03 16:28:57.820  INFO 88673 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-03 16:28:57.972  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplication        : [新建直接映射] 原路径: /Users/mopip77/cc/As01e03.mp3 目标路径: /Users/mopip77/bb/As01e03.mp3
+2020-02-03 16:28:57.985  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplication        : [新建直接映射] 原路径: /Users/mopip77/cc/As01e02.mp3 目标路径: /Users/mopip77/bb/As01e02.mp3
+2020-02-03 16:28:57.993  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplication        : [新建直接映射] 原路径: /Users/mopip77/cc/As01e01.mp3 目标路径: /Users/mopip77/bb/As01e01.mp3
+2020-02-03 16:28:58.001  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplication        : [新建直接映射] 原路径: /Users/mopip77/cc/a 目标路径: /Users/mopip77/bb/a
+2020-02-03 16:28:58.009  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplication        : [新建直接映射] 原路径: /Users/mopip77/cc/b 目标路径: /Users/mopip77/bb/b
+2020-02-03 16:28:58.018  INFO 88673 --- [main] t.m.s.SymbolLinkMapperApplication        : [新建直接映射] 原路径: /Users/mopip77/cc/root.txt 目标路径: /Users/mopip77/bb/root.txt
+2020-02-03 16:28:58.250  INFO 88673 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2020-02-03 16:28:58.251  INFO 88673 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-03 16:28:58.252  INFO 88673 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-02-03 16:28:58.262  INFO 88673 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

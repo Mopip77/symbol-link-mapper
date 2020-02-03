@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tech.mopip77.symbollinkmapper.mapper.FolderMappingConfigurationMapper">
+  <resultMap id="BaseResultMap" type="tech.mopip77.symbollinkmapper.model.FolderMappingConfiguration">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="source_path" jdbcType="VARCHAR" property="sourcePath" />
+    <result column="dest_path" jdbcType="VARCHAR" property="destPath" />
+    <result column="excluded_regx" jdbcType="VARCHAR" property="excludedRegx" />
+    <result column="auto_re_mapping" jdbcType="BIT" property="autoReMapping" />
+    <result column="auto_re_mapping_period" jdbcType="INTEGER" property="autoReMappingPeriod" />
+    <result column="gmt_last_mapping" jdbcType="TIMESTAMP" property="gmtLastMapping" />
+    <result column="symbol_link_type" jdbcType="INTEGER" property="symbolLinkType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, source_path, dest_path, excluded_regx, auto_re_mapping, auto_re_mapping_period, 
+    gmt_last_mapping, symbol_link_type
+  </sql>
+  <select id="selectByExample" parameterType="tech.mopip77.symbollinkmapper.model.FolderMappingConfigurationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from folder_mapping_configuration
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from folder_mapping_configuration
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from folder_mapping_configuration
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="tech.mopip77.symbollinkmapper.model.FolderMappingConfigurationExample">
+    delete from folder_mapping_configuration
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="tech.mopip77.symbollinkmapper.model.FolderMappingConfiguration">
+    insert into folder_mapping_configuration (id, source_path, dest_path, 
+      excluded_regx, auto_re_mapping, auto_re_mapping_period, 
+      gmt_last_mapping, symbol_link_type)
+    values (#{id,jdbcType=INTEGER}, #{sourcePath,jdbcType=VARCHAR}, #{destPath,jdbcType=VARCHAR}, 
+      #{excludedRegx,jdbcType=VARCHAR}, #{autoReMapping,jdbcType=BIT}, #{autoReMappingPeriod,jdbcType=INTEGER}, 
+      #{gmtLastMapping,jdbcType=TIMESTAMP}, #{symbolLinkType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="tech.mopip77.symbollinkmapper.model.FolderMappingConfiguration">
+    insert into folder_mapping_configuration
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sourcePath != null">
+        source_path,
+      </if>
+      <if test="destPath != null">
+        dest_path,
+      </if>
+      <if test="excludedRegx != null">
+        excluded_regx,
+      </if>
+      <if test="autoReMapping != null">
+        auto_re_mapping,
+      </if>
+      <if test="autoReMappingPeriod != null">
+        auto_re_mapping_period,
+      </if>
+      <if test="gmtLastMapping != null">
+        gmt_last_mapping,
+      </if>
+      <if test="symbolLinkType != null">
+        symbol_link_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sourcePath != null">
+        #{sourcePath,jdbcType=VARCHAR},
+      </if>
+      <if test="destPath != null">
+        #{destPath,jdbcType=VARCHAR},
+      </if>
+      <if test="excludedRegx != null">
+        #{excludedRegx,jdbcType=VARCHAR},
+      </if>
+      <if test="autoReMapping != null">
+        #{autoReMapping,jdbcType=BIT},
+      </if>
+      <if test="autoReMappingPeriod != null">
+        #{autoReMappingPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="gmtLastMapping != null">
+        #{gmtLastMapping,jdbcType=TIMESTAMP},
+      </if>
+      <if test="symbolLinkType != null">
+        #{symbolLinkType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="tech.mopip77.symbollinkmapper.model.FolderMappingConfigurationExample" resultType="java.lang.Long">
+    select count(*) from folder_mapping_configuration
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update folder_mapping_configuration
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sourcePath != null">
+        source_path = #{record.sourcePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.destPath != null">
+        dest_path = #{record.destPath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.excludedRegx != null">
+        excluded_regx = #{record.excludedRegx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.autoReMapping != null">
+        auto_re_mapping = #{record.autoReMapping,jdbcType=BIT},
+      </if>
+      <if test="record.autoReMappingPeriod != null">
+        auto_re_mapping_period = #{record.autoReMappingPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="record.gmtLastMapping != null">
+        gmt_last_mapping = #{record.gmtLastMapping,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.symbolLinkType != null">
+        symbol_link_type = #{record.symbolLinkType,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update folder_mapping_configuration
+    set id = #{record.id,jdbcType=INTEGER},
+      source_path = #{record.sourcePath,jdbcType=VARCHAR},
+      dest_path = #{record.destPath,jdbcType=VARCHAR},
+      excluded_regx = #{record.excludedRegx,jdbcType=VARCHAR},
+      auto_re_mapping = #{record.autoReMapping,jdbcType=BIT},
+      auto_re_mapping_period = #{record.autoReMappingPeriod,jdbcType=INTEGER},
+      gmt_last_mapping = #{record.gmtLastMapping,jdbcType=TIMESTAMP},
+      symbol_link_type = #{record.symbolLinkType,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="tech.mopip77.symbollinkmapper.model.FolderMappingConfiguration">
+    update folder_mapping_configuration
+    <set>
+      <if test="sourcePath != null">
+        source_path = #{sourcePath,jdbcType=VARCHAR},
+      </if>
+      <if test="destPath != null">
+        dest_path = #{destPath,jdbcType=VARCHAR},
+      </if>
+      <if test="excludedRegx != null">
+        excluded_regx = #{excludedRegx,jdbcType=VARCHAR},
+      </if>
+      <if test="autoReMapping != null">
+        auto_re_mapping = #{autoReMapping,jdbcType=BIT},
+      </if>
+      <if test="autoReMappingPeriod != null">
+        auto_re_mapping_period = #{autoReMappingPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="gmtLastMapping != null">
+        gmt_last_mapping = #{gmtLastMapping,jdbcType=TIMESTAMP},
+      </if>
+      <if test="symbolLinkType != null">
+        symbol_link_type = #{symbolLinkType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tech.mopip77.symbollinkmapper.model.FolderMappingConfiguration">
+    update folder_mapping_configuration
+    set source_path = #{sourcePath,jdbcType=VARCHAR},
+      dest_path = #{destPath,jdbcType=VARCHAR},
+      excluded_regx = #{excludedRegx,jdbcType=VARCHAR},
+      auto_re_mapping = #{autoReMapping,jdbcType=BIT},
+      auto_re_mapping_period = #{autoReMappingPeriod,jdbcType=INTEGER},
+      gmt_last_mapping = #{gmtLastMapping,jdbcType=TIMESTAMP},
+      symbol_link_type = #{symbolLinkType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
