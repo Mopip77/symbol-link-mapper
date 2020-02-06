@@ -48,3 +48,20 @@
     由于只提供了默认软链接方法，所以名字会重复，不能在同文件夹下添加
 - 文件移动
     这个实现简单，但是希望做成UI
+    
+## 执行方法
+需要一个前端docker: `mopip77/symbol-link-mapper-web`, 其public path为`link`  
+
+在此之前还需要建立对应数据库和表，sql文件在`resources/db/migration`下  
+
+由于后台程序需要对整个服务器文件系统进行管理，所有该后台程序需要在服务器以jar包方式执行，需要参数为springboot所需要的四个数据库配置和运行端口  
+- spring.datasource.url=jdbc:mysql:///symbol_link_mapper
+- spring.datasource.username=root
+- spring.datasource.password=xxxx 
+- server.port=3009
+
+分别启动后，处理好对应nginx即可
+
+效果如下：
+  ![](example.png)
+

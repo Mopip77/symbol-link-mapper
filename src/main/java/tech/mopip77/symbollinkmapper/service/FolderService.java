@@ -206,16 +206,11 @@ public class FolderService {
         Arrays.stream(deletingPaths)
                 .forEach(deletingPath -> {
                     File deletingFile = new File(deletingPath);
-                    if (deletingFile.exists()) {
-                        if (!FileSystemUtils.deleteRecursively(deletingFile)) {
-                            failDeletedPath.add(deletingPath);
-                        } else {
-                            deletedPath.add(deletingPath);
-                        }
-                    } else {
+                    if (!FileSystemUtils.deleteRecursively(deletingFile)) {
                         failDeletedPath.add(deletingPath);
+                    } else {
+                        deletedPath.add(deletingPath);
                     }
-
                     symbolLinkService.deleteAllByPathInDB(deletingFile.getAbsolutePath());
                 });
 

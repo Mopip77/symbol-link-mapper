@@ -127,7 +127,7 @@ public class FileSystemUtils {
             Process exec = Runtime.getRuntime().exec(execCmd);
             String line;
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getErrorStream()));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
             String[] outputLines = {};
             while ((line = bufferedReader.readLine()) != null) {
                 outputLines = ArrayUtils.add(outputLines, line);
@@ -142,6 +142,16 @@ public class FileSystemUtils {
             int exitCode = exec.waitFor();
             result.setExitCode(exitCode);
             result.setRegx(regx);
+
+            System.out.println("output--");
+            for (String outputLine : outputLines) {
+                System.out.println(outputLine);
+            }
+
+            System.out.println("error--");
+            for (String errorOutputLine : errorOutputLines) {
+                System.out.println(errorOutputLine);
+            }
 
             if (exitCode == 0) {
                 // exec success
@@ -218,7 +228,7 @@ public class FileSystemUtils {
             if (split.length != 2)
                 throw new CustomizeException(CustomizeErrorCode.SYS_ERROR);
 
-            String newName = StringUtils.substring(split[1], 2, split[1].length() - 3);
+            String newName = StringUtils.substring(split[1], 2, split[1].length() - 1);
             map.put(oldNames[i], newName);
         }
 
