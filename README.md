@@ -63,5 +63,5 @@
 分别启动后，处理好对应nginx即可
 
 效果如下：
-  ![](example.png)
+  ![](https://github.com/Mopip77/symbol-link-mapper/blob/master/example.png)
 
